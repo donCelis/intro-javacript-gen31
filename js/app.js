@@ -62,6 +62,8 @@ console.log("----Objeto----");
 const user = {
   firstName: "Juan",
   lastName: "Perez",
+  nickName: "juancho",
+  password: "123456",
   age: 28,
   isStudent: true,
   apellido: false,
@@ -103,24 +105,93 @@ console.log(frutas);
 console.log(frutasVerduras[1][1]); // verduras -> cebolla
 console.log(frutasVerduras2[1][1]); // verduras -> cebolla
 
-console.log('----Operadores de comparación----');
+console.log("----Operadores de comparación----");
 // operadores de comparación -> devuelven un valor booleano
 // == -> igualdad
-console.log('10' == 10); // comparar valores
+console.log("10" == 10); // comparar valores
 // === -> igualdad estricta
-console.log('10' === 10); // comparar valores y tipos de datos
+console.log("10" === 10); // comparar valores y tipos de datos
 
 // != -> desigualdad
-console.log('10' != 10); // comparar valores
+console.log("10" != 10); // comparar valores
 // !== -> desigualdad estricta
-console.log('10' !== 10); // comparar valores y tipos de datos
+console.log("10" !== 10); // comparar valores y tipos de datos
 console.log(!undefined);
 
 // mayor que -> >
-console.log(10 > 9);  // true
+console.log(10 > 9); // true
 // menor que -> <
 console.log(10 < 10); // false
 // mayor o igual que -> >=
 console.log(10 >= 10); // true
 // menor o igual que -> <=
-console.log(10 <= 10);  // true
+console.log(10 <= 10); // true
+
+// operadores lógicos -> devuelven un valor booleano
+// and -> && -> verdadero si todas las condiciones son verdaderas
+console.log(10 < 10 && 10 >= 10); // false
+console.log(true && false); // false
+console.log(false && false); // false
+console.log(true && true && true && true); // true
+console.log(true && true && true && false); // false
+
+// or -> || -> falso si todas las condiciones son falsas
+console.log(true || true); // true
+console.log(true || false); // true
+console.log(false || false || false || false); // false
+console.log(false || false || true || false); // true
+
+// not -> ! -> negación
+console.log(!true); // false
+console.log(!false); // true
+
+// condicionales
+/* const userNickInput = prompt("Ingrese su nombre");
+const userPasswordInput = prompt("Ingrese su contraseña"); */
+
+// condicional simple -> if
+// si el usuario es juancho y la contraseña es 123456
+/* if (userNickInput === user.nickName && userPasswordInput === user.password) {
+  console.log("Bienvenido");
+} */
+
+// condicional compuesto -> if - else
+// si el usuario es juancho y la contraseña es 123456
+const userNickInput = 'juancho';
+const userPasswordInput = '123456';
+if (userNickInput === user.nickName && userPasswordInput === user.password) {
+  console.log("Bienvenido");
+} else {
+  console.log("Usuario o contraseña incorrecta");
+}
+
+// condicional múltiple -> if - else if - else
+// si el usuario es juancho y la contraseña es 123456
+/* if (userNickInput === user.nickName && userPasswordInput === user.password) {
+  console.log("Bienvenido");
+} else if (
+  userNickInput === user.nickName &&
+  userPasswordInput !== user.password
+) {
+  console.log("Contraseña incorrecta");
+} else {
+  console.log("Usuario o contraseña incorrecta");
+} */
+
+// operador ternario
+// condicion ? verdadero : falso
+const validateLogin =
+  userNickInput === user.nickName && userPasswordInput === user.password
+    ? user
+    : null;
+
+/* 
+  1 -> validateLogin -> user si es un objeto que tiene la propiedad firstName
+  2 -> validateLogin -> null es null
+*/
+
+/* if (validateLogin?.nickName) {
+  alert("Bienvenido");
+} else {
+  alert("Usuario o contraseña incorrecta");
+} */
