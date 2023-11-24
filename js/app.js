@@ -2,9 +2,9 @@
 /* comentarios a doble línea -> comentar código */
 
 // Variables
-// declaracion de variables
+// declaracion de variables -> var(x), let, const
 /* let nombre; */
-// asignacion de variables
+// asignacion de variables -> =
 /* nombre = "Juan"; */
 
 // declaracion y asignacion de variables
@@ -102,3 +102,25 @@ const frutasVerduras2 = [
 console.log(frutas);
 console.log(frutasVerduras[1][1]); // verduras -> cebolla
 console.log(frutasVerduras2[1][1]); // verduras -> cebolla
+
+console.log('----Operadores de comparación----');
+// operadores de comparación -> devuelven un valor booleano
+// == -> igualdad
+console.log('10' == 10); // comparar valores
+// === -> igualdad estricta
+console.log('10' === 10); // comparar valores y tipos de datos
+
+// != -> desigualdad
+console.log('10' != 10); // comparar valores
+// !== -> desigualdad estricta
+console.log('10' !== 10); // comparar valores y tipos de datos
+console.log(!undefined);
+
+// mayor que -> >
+console.log(10 > 9);  // true
+// menor que -> <
+console.log(10 < 10); // false
+// mayor o igual que -> >=
+console.log(10 >= 10); // true
+// menor o igual que -> <=
+console.log(10 <= 10);  // true
