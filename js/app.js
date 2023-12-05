@@ -195,3 +195,215 @@ const validateLogin =
 } else {
   alert("Usuario o contraseña incorrecta");
 } */
+
+/* Ciclos */
+
+let index = 11;
+//let contador = 0;
+/* while (index >= 0) {
+  console.log("index:", index);
+  index--;
+} */
+
+/* do {
+  console.log("index:", index);
+  index--;
+} while (index >= 0) */
+
+/* Alcance o scope */
+
+{
+  //FIXED:
+  let contador = 58;
+  console.log("alcance privado", contador);
+}
+
+
+//FIXED:
+let contador = 5;
+
+
+for (let i = 0; i < 10; i++) {
+  //FIXED:
+  let contador = 0;
+  if (i % 2 === 0) {
+    contador++;
+    contador = contador * 2;
+  }
+  console.log("Dentro del for", contador);
+}
+
+
+console.log("Alcance global", contador);
+
+
+/* Funciones */
+
+/* const n1 = 2;
+const n2 = 3;
+const suma = n1 + n2;
+
+const n3 = 123;
+const n4 = 1028312;
+const otraSuma = n3 + n4; */
+
+/* 
+  Funciones son fragmentos de código que se
+  crean para resolver una tarea, y que pueden ser reutilizados
+
+  Solo podemos retornar una sola vez por función
+ */
+
+/* function suma(primerNumero = 0, segundoNumero = 0) {
+  if (isNaN(primerNumero) || isNaN(segundoNumero)) return "Valores no validos";
+  return primerNumero + segundoNumero;
+} */
+
+
+/* console.log("suma con un valor", suma(5));
+console.log("suma sin valores", suma());
+console.log("suma normal", suma(5, 15)); */
+
+
+function suma({ primerNumero = 0, segundoNumero = 0 }) {
+  if (isNaN(primerNumero) || isNaN(segundoNumero)) return "Valores no validos";
+  return primerNumero + segundoNumero;
+}
+
+let operandos = {
+  tercerParametro: 15,
+  segundoNumero: 18,
+  primerNumero: 5
+}
+/* Destructuración */
+const { primerNumero, segundoNumero, tercerParametro } = operandos;
+
+console.log(primerNumero)
+console.log(segundoNumero)
+
+let operandos2 = {}
+
+console.log("suma con un valor", suma({ segundoNumero: 18, primerNumero: 10 }));
+//console.log("suma sin valores", suma());
+//console.log("suma normal", suma(5, 15));
+
+// alert(suma(2, 9));
+
+/* const valorUsuario1 = Number(prompt("Ingrese el primer valor"));
+const valorUsuario2 = Number(prompt("Ingrese el segundo valor"));
+
+console.log(suma(valorUsuario1, valorUsuario2)); */
+
+const valoresNumericos = {
+  primerNumero: 80,
+  segundoNumero: 20,
+};
+
+console.log(suma(valoresNumericos));
+console.log(suma({ primerNumero: 30 }));
+
+function operacionesMat(n1 = 0, n2 = 0) {
+  function suma() {
+    return n1 + n2;
+  }
+
+  function resta() {
+    return n1 - n2;
+  }
+
+  function multi() {
+    return n1 * n2;
+  }
+
+  return { suma, resta, multi };
+}
+
+const getNombre = () => console.log("José Hernández");
+
+/* getNombre();
+getNombre();
+getNombre(); */
+
+let alias = getNombre;
+
+console.log(operacionesMat(3, 2).suma());
+console.log(operacionesMat(3, 2).resta());
+
+
+
+/* Desestructuración */
+
+const valoresNumericosObj = {
+  primerNumero: 80,
+  segundoNumero: 20,
+};
+
+// console.log(valoresNumericos.primerNumero)
+
+const { primerNumero: numeroUno } = valoresNumericos;
+console.log(numeroUno);
+
+const arregloDeNumeros = ["a", "b", "c", "d", "e", "z"];
+
+const [primerDato, segundoDato] = arregloDeNumeros;
+
+console.log("primer dato", primerDato);
+
+function operacionesMat(n1 = 0, n2 = 0) {
+  function suma() {
+    return n1 + n2;
+  }
+
+  function resta() {
+    return n1 - n2;
+  }
+
+  function multi() {
+    return n1 * n2;
+  }
+
+  return { suma, resta, multi };
+}
+
+const { suma: sumaFunc, multi: multiFunc } = operacionesMat(3, 4);
+const { multi } = operacionesMat(2, 3);
+
+console.log(sumaFunc());
+console.log(multi());
+
+/* Obtuve el boton desde el html en forma de objeto*/
+/* const buttonLogin = document.getElementById('login_btn');
+
+buttonLogin.addEventListener('click', () => console.log('Click en boton login'))
+buttonLogin.addEventListener('mouseover', () => console.log('Hover en boton login')) */
+
+
+/* ESTOS EJEMPLOS SOLO FUNCIONAN CON EL ARCHIVO testing_events.html */
+
+
+/* Ejemplo con eventListeners */
+
+
+// Obtener el botón por su ID
+/* const botonCambioColor = document.querySelector('#botonCambioColor')
+ */
+// Agregar un EventListener para el clic
+/* botonCambioColor.addEventListener("click", cambiarColorFondo);
+ */
+function cambiarColorFondo() {
+  // Obtener el elemento por su ID
+  const elemento = document.querySelector("#elementoAModificar");
+
+  // Cambiar el color de fondo
+  elemento.style.backgroundColor = getRandomColor();
+}
+
+function getRandomColor() {
+  // Generar un color hexadecimal aleatorio
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
